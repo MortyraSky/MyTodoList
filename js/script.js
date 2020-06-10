@@ -33,7 +33,7 @@ addButton.onclick = function (event) {
         let i = todoList.length;
         todoList[i] = temp;
         console.log(todoList);
-        // localStorage.setItem('todo', JSON.stringify(todoList));
+        localStorage.setItem('todo', JSON.stringify(todoList));
         addTodoItem(temp);
     }
 };
