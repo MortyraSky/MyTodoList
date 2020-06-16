@@ -51,3 +51,7 @@ footer{
  .todo-title{
      text-align: center;
  }
+
+ .crossing{
+     text-decoration: line-through;
+ }

@@ -56,6 +56,10 @@ function addTodoItem(todoArr) {
     let todoCheckBox = document.createElement('input');
     todoCheckBox.type = "checkbox";
     todoCheckBox.classList.add('todo-checkbox');
+    if(todoArr['checkTodo']) {
+        todoCheckBox.checked = true;
+        newTodo.classList.add('crossing');
+    }
     let todoDateBlock = document.createElement('div');
     todoDateBlock.classList.add('todo-date');
     todoDateBlock.innerHTML = todoArr['dateTodo'];
