@@ -5,6 +5,8 @@
     font-size: 16px;
     border: none;
     cursor: pointer;
+    min-width: 160px;
+    
 }
 
 .dropbtn:hover, .dropbtn:focus {
@@ -14,6 +16,8 @@
 .dropdown {
     position: relative;
     display: inline-block;
+    left: 20px;
+    margin-bottom: 20px;
 }
 
 .dropdown-content {
@@ -26,11 +30,21 @@
     z-index: 1;
 }
 
+.sortByDate {
+    border: none;
+    cursor: pointer;
+    background-color: #f1f1f1;
+}
+
 .dropdown-content a, button{
     color: black;
     padding: 12px 16px;
     text-decoration: none;
     display: block;
+}
+
+i{
+    background-color: #f1f1f1;
 }
 
 .dropdown a:hover {background-color: #ddd;}

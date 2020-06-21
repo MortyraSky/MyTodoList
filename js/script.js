@@ -32,7 +32,7 @@ addButton.onclick = function (event) {
         temp.checkTodo = false;
         let i = todoList.length;
         todoList[i] = temp;
-        console.log(todoList);
+        // console.log(todoList);
         localStorage.setItem('todo', JSON.stringify(todoList));
         renderTodo(temp);
     }
@@ -65,7 +65,7 @@ function createTodoItem(todoArr) {
     todoDateBlock.innerHTML = todoArr['dateTodo'];
     let todoDeleteBlock = document.createElement('button');
     todoDeleteBlock.classList.add('delete-button');
-    todoDeleteBlock.innerHTML = "Delete todo";
+    todoDeleteBlock.innerHTML = "<i class='fas fa-trash'></i>";
     todoInformationBlock.appendChild(todoCheckBox);
     todoInformationBlock.appendChild(todoDateBlock);
     todoInformationBlock.appendChild(todoDeleteBlock);
