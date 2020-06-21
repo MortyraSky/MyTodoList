@@ -14,7 +14,7 @@ for (const key in todoList) {
     if (todoList.hasOwnProperty(key)) {
         const element = todoList[key];
         console.log(element);
-        addTodoItem(element);
+        renderTodo(element);
     }
 }
 
@@ -34,12 +34,12 @@ addButton.onclick = function (event) {
         todoList[i] = temp;
         console.log(todoList);
         localStorage.setItem('todo', JSON.stringify(todoList));
-        addTodoItem(temp);
+        renderTodo(temp);
     }
 };
 
 
-function addTodoItem(todoArr) {
+function createTodoItem(todoArr) {
     
     let newTodo = document.createElement('div');
     newTodo.classList.add('todo-item');
@@ -77,5 +77,10 @@ function addTodoItem(todoArr) {
     newTodo.appendChild(titleBlock);
     newTodo.appendChild(todoDescBlock);
     newTodo.appendChild(todoInformationBlock);
-    document.querySelector('.todo-fields').appendChild(newTodo);
+    return newTodo;
+}
+
+function renderTodo(todoArr) {
+    let todoItem = createTodoItem(todoArr);
+    document.querySelector('.todo-fields').appendChild(todoItem);
 }
