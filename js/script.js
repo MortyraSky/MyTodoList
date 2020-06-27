@@ -35,12 +35,13 @@ addButton.onclick = function (event) {
         // console.log(todoList);
         localStorage.setItem('todo', JSON.stringify(todoList));
         renderTodo(temp);
+        clearInputs();
     }
 };
 
 
 function createTodoItem(todoArr) {
-    
+
     let newTodo = document.createElement('div');
     newTodo.classList.add('todo-item');
 
@@ -56,7 +57,7 @@ function createTodoItem(todoArr) {
     let todoCheckBox = document.createElement('input');
     todoCheckBox.type = "checkbox";
     todoCheckBox.classList.add('todo-checkbox');
-    if(todoArr['checkTodo']) {
+    if (todoArr['checkTodo']) {
         todoCheckBox.checked = true;
         newTodo.classList.add('crossing');
     }
@@ -83,4 +84,10 @@ function createTodoItem(todoArr) {
 function renderTodo(todoArr) {
     let todoItem = createTodoItem(todoArr);
     document.querySelector('.todo-fields').appendChild(todoItem);
+}
+
+function clearInputs() {
+    titleInput.value = "";
+    dateInput.value = "";
+    descriptionInput.value = "";
 }
