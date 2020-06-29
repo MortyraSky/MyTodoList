@@ -33,10 +33,19 @@
 
 .todo-title {
     margin: 15px 0;
+    padding: 0 5px;
     text-transform: uppercase;
     letter-spacing: 1px;
     font-size: 20px;
     text-align: center;
+}
+
+.todo-checkbox {
+    padding-right: 5px;
+}
+
+.todo-date {
+    padding-left: 5px;
 }
 
 .todo-descriptions{
