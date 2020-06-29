@@ -7,13 +7,14 @@
     outline: none;
     background: #696d7a;
     margin: 0 auto;
+    word-wrap: break-word;
 }
 
 .todo-header{
     font-size: 24px;
     text-align: center;
     text-transform: uppercase;
-    color: dodgerblue;
+    color: white;
     letter-spacing: 1px;
     margin-top: 55px;
 }
@@ -70,12 +71,11 @@
 }
 
 .todo-add {
-    margin-top: 100px;
+    margin-top: 30px;
 }
 
 .add-container{
-    margin-top: 10px;
-    margin-bottom: 10px;
+    text-align: center;    
 }
 footer{
     width: 100%;
@@ -83,8 +83,6 @@ footer{
 
 }
  .todo-item {
-     margin-top: 20px;
-     margin-bottom: 20px;
      max-width: 250px;
      max-height: 250px;
      color: white;
@@ -105,25 +103,18 @@ footer{
      width: 200px;
      height: 50px;
      margin-bottom: 10px;
-     padding: 5px;
+     padding: 10px;
      font-size: 14px;
      background: #3498DB;
      color: white;
-     border-radius: 7px;
+     border-radius: 8px;
      border: none;
- }
-
- .todo-title {
-     color: white;
  }
 
  .todo-input::placeholder{
      color: #b9b2b267;
  }
 
- .add-container {
-     margin-left: 20px;
- }
 
  .add-button {
      color: whitesmoke;
@@ -134,4 +125,28 @@ footer{
 
  .add-button:hover{
      cursor: pointer;
+ }
+
+ .add-headedr {
+     color: white;
+ }
+
+ @media screen and (max-width: 765px) {
+     .todo-header {
+        margin-top: 20px;
+     }
+    .dropdown {
+        margin-top: 15px;
+        left: 39% !important;
+    }
+    .todo-add {
+        margin-top: 20px;
+    }
+ }
+
+
+ @media screen and (max-width: 500px) {
+    .dropdown {
+        left: 33% !important;
+    }
  }

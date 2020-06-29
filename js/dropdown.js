@@ -19,6 +19,6 @@ window.onclick = function (event) {
 // но тогда сортировка будет всегда сохраняться. Доп массив с изначальным todoList
 
 document.querySelector('.sortByDate').onclick = function() {
-    let ul = document.getElementsByClassName('todo-fields')[0];
+    let ul = document.getElementById('todo-fields');
     sortList(ul);
 };

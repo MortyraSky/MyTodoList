@@ -3,6 +3,7 @@ let addButton = document.querySelector('.add-button');
 let titleInput = document.getElementById('title-input');
 let dateInput = document.getElementById('date-input');
 let descriptionInput = document.getElementById('description-input');
+addButton.addEventListener("click", addTask);
 
 let todoList = [];
 if (localStorage.getItem('todo') != undefined) {
@@ -18,11 +19,12 @@ for (const key in todoList) {
     }
 }
 
-addButton.onclick = function (event) {
-    //event.preventDefault();
+
+function addTask() {
     let title = titleInput.value;
     let date = dateInput.value;
     let description = descriptionInput.value;
+    let id = getId();
     // добавление в локал сторадж, stringify преобразует массив в строку
     if (title != "" || date != "" || description != "") {
         let temp = {};
@@ -30,15 +32,18 @@ addButton.onclick = function (event) {
         temp.dateTodo = date;
         temp.descTodo = description;
         temp.checkTodo = false;
+        temp.idTodo = id;
         let i = todoList.length;
         todoList[i] = temp;
-        // console.log(todoList);
-        localStorage.setItem('todo', JSON.stringify(todoList));
+        addItemToLocalStorage();
         renderTodo(temp);
         clearInputs();
     }
-};
+}
 
+function addItemToLocalStorage() {
+    localStorage.setItem('todo', JSON.stringify(todoList));
+}
 
 function createTodoItem(todoArr) {
 
@@ -78,6 +83,7 @@ function createTodoItem(todoArr) {
     newTodo.appendChild(titleBlock);
     newTodo.appendChild(todoDescBlock);
     newTodo.appendChild(todoInformationBlock);
+    newTodo.setAttribute('key', todoArr['idTodo']);
     return newTodo;
 }
 
@@ -90,4 +96,10 @@ function clearInputs() {
     titleInput.value = "";
     dateInput.value = "";
     descriptionInput.value = "";
+}
+
+function getId() {
+    return Math.random()
+        .toExponential(36)
+        .substring(2, 9);
 }

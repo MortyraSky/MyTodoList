@@ -1,15 +1,23 @@
-let deleteButtons = document.getElementsByClassName('delete-button');
-console.log(deleteButtons);
-for (let i = 0; i < deleteButtons.length; i++) {
-    console.log(deleteButtons[i]);
-    deleteButtons[i].addEventListener("click", function(){deleteTodo(i);}, false);
+document.querySelector('.todo-fields').addEventListener("click", deleteTodo, true);
+console.log("---------------------------------------------");
+
+function deleteTodo(event) {
+    const targetDelete = event.target;
     
+    if (targetDelete.type == "submit") {
+        const todoItem = targetDelete.parentNode.parentNode;
+        let keyItem = todoItem.getAttribute("key");
+        deleteTasks(todoItem, keyItem);
+    }
+    else if (targetDelete.tagName == "I") {
+        const todoItem = targetDelete.parentNode.parentNode.parentNode;
+        let keyItem = todoItem.getAttribute("key");
+        deleteTasks(todoItem, keyItem);
+    }
 }
 
-function deleteTodo(i) {
-    let todoItems = document.getElementsByClassName('todo-item');
-    todoItems[i].remove();
-    todoList.splice(i, 1);
-    console.log(todoList);
-    localStorage.setItem('todo', JSON.stringify(todoList));
-}
+function deleteTasks(node, key) {
+    node.remove();
+    todoList.splice(todoList.findIndex(item => item.idTodo === key), 1);
+    addItemToLocalStorage();
+  }

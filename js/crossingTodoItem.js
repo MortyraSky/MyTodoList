@@ -1,28 +1,36 @@
-let checkboxes = document.getElementsByClassName('todo-checkbox');
+document.querySelector('.todo-fields').addEventListener("click", enableCheckBox, true);
 console.log("---------------------------------------------");
-for (let i = 0; i < checkboxes.length; i++) {
-    console.log(checkboxes[i]);
-    checkboxes[i].addEventListener("click", function(){enableCheckBox(i);}, false);
-    // checkboxes[i].addEventListener("click", function(){crossingTodo();}, false);
-}
 
-function enableCheckBox(i) {
+function enableCheckBox(event) {
+    const targetCheck = event.target;
+    const todoItem = targetCheck.parentNode.parentNode;
+    let keyItem = todoItem.getAttribute("key");
     // наверное, надо передавать номер чекбокса, и по номеру чекбокса записывать свойство сhecked в todoList
-    //
-    let todoItems = document.getElementsByClassName('todo-item');
-    if (todoList[i].checkTodo) {
-        todoList[i].checkTodo = false;        
-        todoItems[i].classList.remove('crossing');
+    if (targetCheck.type == "checkbox") {
+        if (targetCheck.checked) {
+            todoItem.classList.add("crossing");
+            let element = getTodoItemByKey(keyItem);
+            element['checkTodo'] = true;
+            addItemToLocalStorage();
+        } else {
+            todoItem.classList.remove("crossing");
+            let element = getTodoItemByKey(keyItem);
+            element['checkTodo'] = false;
+            addItemToLocalStorage();
+        }
     }
-    else {
-        todoList[i].checkTodo = true;
-        todoItems[i].classList.add('crossing');
-    }
-    console.log(todoItems[i].childNodes);
-    // console.log(i);
-    // console.log(todoList[i - 1].checkTodo); // убрать i - 1, тк 1элемент не вкл в todoList
-    // todoList[i - 1].checkTodo = true;
-    localStorage.setItem('todo', JSON.stringify(todoList));
 }
 
-
+function getTodoItemByKey(keyItem) {
+    let key;
+    for (key in todoList) {
+        const element = todoList[key];
+        for (const prop in element) {
+            if (element[prop] == keyItem) {
+                console.log(element);
+                break;
+            }
+        }
+    }
+    return todoList[key];
+}
