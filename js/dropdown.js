@@ -18,7 +18,12 @@ window.onclick = function (event) {
 // можно отсортировать todoList внести в локалсторедж и перезагрузить страницу
 // но тогда сортировка будет всегда сохраняться. Доп массив с изначальным todoList
 
-document.querySelector('.sortByDate').onclick = function() {
+document.querySelector('.ascending-date').onclick = function() {
     let ul = document.getElementById('todo-fields');
-    sortList(ul);
+    sortItemByAscendingDate(ul);
+};
+
+document.querySelector('.descending-date').onclick = function() {
+    let ul = document.getElementById('todo-fields');
+    sortItemByDscendingDate(ul);
 };

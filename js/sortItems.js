@@ -1,5 +1,5 @@
 // как будет работать сортировка
-function sortList(element) {
+function sortItemByAscendingDate(element) {
     console.log(element);
     // 1. копируем массив объектов todoList
     let copyTodoList = todoList.slice();
@@ -8,6 +8,19 @@ function sortList(element) {
         let dateA = new Date(a.dateTodo),
             dateB = new Date(b.dateTodo);
         return dateA - dateB; //сортировка по возрастающей дате
+    });    
+    // 3. вызываем перерисовку сортировынных тудушек 
+    renderSortedTodo(element, copyTodoList);
+}
+function sortItemByDscendingDate(element) {
+    console.log(element);
+    // 1. копируем массив объектов todoList
+    let copyTodoList = todoList.slice();
+    // 2. сортируем скопированный массив по дате
+    copyTodoList.sort(function (a, b) {
+        let dateA = new Date(a.dateTodo),
+            dateB = new Date(b.dateTodo);
+        return dateB - dateA; //сортировка по возрастающей дате
     });
     // 3. вызываем перерисовку сортировынных тудушек 
     renderSortedTodo(element, copyTodoList);

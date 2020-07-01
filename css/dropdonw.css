@@ -47,6 +47,10 @@
     background-color: #f1f1f1;
 }
 
+.fa-arrow-down{
+    background-color: #f1f1f1;
+}
+
 .dropdown a:hover {background-color: #ddd;}
 
 .show {display: block;}
