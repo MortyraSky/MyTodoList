@@ -1,1 +1,1 @@
-# https://mortyrasky.github.io/MyTodoList/
+# https://mortyrasky.github.io/MyTodoList/index.html
