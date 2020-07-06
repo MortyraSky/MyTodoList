@@ -8,11 +8,12 @@ function sortItemByAscendingDate(element) {
         let dateA = new Date(a.dateTodo),
             dateB = new Date(b.dateTodo);
         return dateA - dateB; //сортировка по возрастающей дате
-    });    
+    });
     // 3. вызываем перерисовку сортировынных тудушек 
     renderSortedTodo(element, copyTodoList);
 }
-function sortItemByDscendingDate(element) {
+
+function sortItemByDescendingDate(element) {
     console.log(element);
     // 1. копируем массив объектов todoList
     let copyTodoList = todoList.slice();
@@ -20,7 +21,39 @@ function sortItemByDscendingDate(element) {
     copyTodoList.sort(function (a, b) {
         let dateA = new Date(a.dateTodo),
             dateB = new Date(b.dateTodo);
-        return dateB - dateA; //сортировка по возрастающей дате
+        return dateB - dateA;
+    });
+    // 3. вызываем перерисовку сортировынных тудушек 
+    renderSortedTodo(element, copyTodoList);
+}
+
+function sortItemByAscendingTitle(element) {
+    let copyTodoList = todoList.slice();
+    // 2. сортируем скопированный массив по дате
+    copyTodoList.sort(function (a, b) {
+        let nameA = a.titleTodo.toLowerCase(),
+            nameB = b.titleTodo.toLowerCase();
+        if (nameA < nameB) //сортируем строки по возрастанию
+            return -1;
+        if (nameA > nameB)
+            return 1;
+        return 0; // Никакой сортировки 
+    });
+    // 3. вызываем перерисовку сортировынных тудушек 
+    renderSortedTodo(element, copyTodoList);
+}
+
+function sortItemByDescendingTitle(element) {
+    let copyTodoList = todoList.slice();
+    // 2. сортируем скопированный массив по дате
+    copyTodoList.sort(function (a, b) {
+        let nameA = a.titleTodo.toLowerCase(),
+            nameB = b.titleTodo.toLowerCase();
+        if (nameA > nameB) //сортируем строки по убыванию
+            return -1;
+        if (nameA < nameB)
+            return 1;
+        return 0; // Никакой сортировки
     });
     // 3. вызываем перерисовку сортировынных тудушек 
     renderSortedTodo(element, copyTodoList);

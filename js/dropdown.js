@@ -25,5 +25,15 @@ document.querySelector('.ascending-date').onclick = function() {
 
 document.querySelector('.descending-date').onclick = function() {
     let ul = document.getElementById('todo-fields');
-    sortItemByDscendingDate(ul);
+    sortItemByDescendingDate(ul);
+};
+
+document.querySelector('.ascending-title').onclick = function() {
+    let ul = document.getElementById('todo-fields');
+    sortItemByAscendingTitle(ul);
+};
+
+document.querySelector('.descending-title').onclick = function() {
+    let ul = document.getElementById('todo-fields');
+    sortItemByDescendingTitle(ul);
 };

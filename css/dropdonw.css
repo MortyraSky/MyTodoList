@@ -16,8 +16,8 @@
 .dropdown {
     position: relative;
     display: inline-block;
-    left: 20px;
-    margin-bottom: 20px;
+    left: 42%;
+    margin: 20px 0;
 }
 
 .dropdown-content {
@@ -30,7 +30,7 @@
     z-index: 1;
 }
 
-.sortByDate {
+.sort-button {
     border: none;
     cursor: pointer;
     background-color: #f1f1f1;

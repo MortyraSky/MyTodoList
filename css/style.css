@@ -158,4 +158,16 @@ footer{
     .dropdown {
         left: 33% !important;
     }
+
+    @media screen and (max-width: 1020px) {
+        .dropdown {
+            left: 42% !important;
+        }
+    }
+
+    @media screen and (min-width: 380px){
+        .dropdown {
+            left: 29% !important;
+        }
+    }
  }
